@@ -8,7 +8,7 @@ import javafx.scene.image.ImageView;
 public class HelloController {
 
     @FXML
-    private ImageView Bot;
+    private ImageView robot;
 
 
    // NOTE: car might not be in the right spot, might change spot if needed
