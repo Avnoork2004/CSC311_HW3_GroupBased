@@ -17,10 +17,10 @@ public class HelloApplication extends Application {
     @Override
     public void start(Stage stage) throws IOException {
         // this is to load the maze and robot  (JS)
-        Image maze = new Image(getClass().getResource("/images/maze.png").toString());
+        Image maze = new Image(getClass().getResource("/org/example/csc311_hw3_groupbased/images/maze.png").toString());
         ImageView mazeView = new ImageView(maze);
 
-        Image robot = new Image(getClass().getResource("/images/robot.png").toString());
+        Image robot = new Image(getClass().getResource("/org/example/csc311_hw3_groupbased/images/robot.png").toString());
         ImageView  robotView = new ImageView(robot);
 
         //initial position of the robot
