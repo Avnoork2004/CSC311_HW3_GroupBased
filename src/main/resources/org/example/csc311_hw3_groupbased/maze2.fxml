@@ -5,10 +5,9 @@
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 
-
-<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.csc311_hw3_groupbased.HelloController">
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.csc311_hw3_groupbased.HelloController">
    <children>
-      <ImageView fitHeight="295.0" fitWidth="419.0" layoutX="83.0" layoutY="24.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="maze2" fitHeight="295.0" fitWidth="419.0" layoutX="83.0" layoutY="24.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@images/maze2.png" />
          </image>
