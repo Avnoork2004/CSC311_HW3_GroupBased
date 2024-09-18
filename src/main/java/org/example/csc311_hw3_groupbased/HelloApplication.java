@@ -14,60 +14,52 @@ import java.io.IOException;
 
 public class HelloApplication extends Application {
     private Stage stage;
+
     @Override
     public void start(Stage stage) throws IOException {
-        // this is to load the maze and robot  (JS)
-        Image maze = new Image(getClass().getResource("/org/example/csc311_hw3_groupbased/images/maze.png").toString());
+        this.stage = stage; // Initialize the stage
+
+        // Load the maze and robot images
+        Image maze = new Image(getClass().getResourceAsStream("/org/example/csc311_hw3_groupbased/images/maze.png"));
         ImageView mazeView = new ImageView(maze);
 
-        Image robot = new Image(getClass().getResource("/org/example/csc311_hw3_groupbased/images/robot.png").toString());
-        ImageView  robotView = new ImageView(robot);
+        Image robot = new Image(getClass().getResourceAsStream("/org/example/csc311_hw3_groupbased/images/robot.png"));
+        ImageView robotView = new ImageView(robot);
 
-        //initial position of the robot
+        // Initial position of the robot
         robotView.setX(50);
         robotView.setY(50);
 
-
-        //creating pane to add the images
-
+        // Create pane to add the images
         Pane pane = new Pane();
         pane.getChildren().addAll(mazeView, robotView);
 
-        Scene scene = new Scene(pane, 800, 600 );
-        // set key listenner for horizontal movement;
+        Scene scene = new Scene(pane, 800, 600);
 
-        scene.setOnKeyPressed( e -> {
+        // Set key listener for horizontal movement
+        scene.setOnKeyPressed(e -> {
             double currentX = robotView.getX();
 
             if (e.getCode() == KeyCode.RIGHT) {
                 robotView.setX(currentX + 10);
-            }
-            else if (e.getCode() == KeyCode.LEFT){
+            } else if (e.getCode() == KeyCode.LEFT) {
                 robotView.setX(currentX - 10);
             }
         });
 
-
-
-
-
-    }
-        /*FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("maze1.fxml"));
-        Scene scene = new Scene(fxmlLoader.load(), 320, 240);
-        stage.setTitle("maze!");
+        // Set the scene and show the stage
         stage.setScene(scene);
+        stage.setTitle("Maze Game");
         stage.show();
-    }*/
+    }
 
     public void Maze2(ActionEvent event) throws IOException {
         FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("maze2.fxml"));
         Scene scene = new Scene(fxmlLoader.load(), 320, 240);
-        stage.setTitle("maze!");
+        stage.setTitle("Maze!");
         stage.setScene(scene);
         stage.show();
-
     }
-
 
     public static void main(String[] args) {
         launch();
