@@ -6,10 +6,13 @@ import javafx.scene.control.Button;
 import javafx.scene.image.ImageView;
 import javafx.animation.KeyFrame;
 import javafx.animation.Timeline;
+import javafx.scene.image.PixelReader;
 import javafx.stage.Stage;
 import javafx.util.Duration;
 import javafx.scene.layout.Pane;
+import javafx.scene.paint.Color;
 
+import java.awt.*;
 import java.io.IOException;
 
 public class HelloController {
@@ -54,10 +57,48 @@ public class HelloController {
    if (Bot.getX() >= maze1.getFitWidth()) {  // Stop animation if robot reaches the end of the maze
     robotTimeline.stop();
    }
+   //stops if there a pixel value(wall) detected
+   if (pixelDetected(Bot.getX(), Bot.getY(), maze1)){
+    //if true then animation stop
+    robotTimeline.stop();
+    System.out.println("wall detected");
+
+   }
+
   }));
   robotTimeline.setCycleCount(Timeline.INDEFINITE);  // Loop the animation indefinitely
   robotTimeline.play();  // Start the animation
  }
+
+ boolean pixelDetected(double x, double y, ImageView maze1) {
+  PixelReader pr = maze1.getImage().getPixelReader();
+
+
+// Ensure the PixelReader is not null
+  if (pr != null) {
+   int pixelX = (int) x;
+   int pixelY = (int) y;
+
+
+   // Ensure the coordinates are within the image bounds
+   if (pixelX >= 0 && pixelY >= 0 && pixelX < maze1.getImage().getWidth() && pixelY < maze1.getImage().getHeight()) {
+
+
+   Color colorPixel = pr.getColor(pixelX,pixelY);// Get the pixel color
+
+
+    // Compare the pixel color to Color
+    System.out.println(colorPixel); // show what color it detect
+    return colorPixel.equals(Color.WHITE);  // Wall detected
+
+
+   }
+  }
+
+
+  return false;  // No wall detected
+ }
+
 
  // Starts animation for moving the car in Maze 2
  @FXML
