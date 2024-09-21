@@ -5,6 +5,17 @@
 <?import javafx.scene.layout.VBox?>
 
 <?import javafx.scene.control.Button?>
+<!--suppress ALL, XmlUnresolvedReference -->
+UnresolvedReference -->
+UnresolvedReference -->
+UnresolvedReference -->
+UnresolvedReference -->
+UnresolvedReference -->
+UnresolvedReference -->
+UnresolvedReference -->
+UnresolvedReference -->
+UnresolvedReference -->
+UnresolvedReference -->
 <VBox alignment="CENTER" spacing="20.0" xmlns:fx="http://javafx.com/fxml"
       fx:controller="org.example.csc311_hw3_groupbased.HelloController">
     <padding>
