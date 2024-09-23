@@ -1,13 +1,11 @@
 package org.example.csc311_hw3_groupbased;
 
 import javafx.application.Application;
-import javafx.event.ActionEvent;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.image.PixelReader;
-import javafx.scene.input.KeyCode;
 import javafx.scene.layout.Pane;
 import javafx.scene.paint.Color;
 import javafx.stage.Stage;
@@ -17,7 +15,6 @@ import java.io.IOException;
 public class HelloApplication extends Application {
     private Stage stage;
 
-    @Override
     public void start(Stage primarystage) throws IOException {
         Pane root = new Pane();
 
@@ -87,7 +84,7 @@ public class HelloApplication extends Application {
                 Color color = pixelReader.getColor((int) (x + i), (int) (y + j));
 
                 // Assuming walls are black (or any dark color), adjust as per your image
-                if (color.equals(Color.WHITE)) {
+                if (color.equals(Color.BLUE)) {
                     return true; // Collision detected
                 }
             }
@@ -97,7 +94,7 @@ public class HelloApplication extends Application {
 
 
 
-    public void Maze2(ActionEvent event) throws IOException {
+    public void Maze2() throws IOException {
         FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("maze2.fxml"));
         Scene scene = new Scene(fxmlLoader.load(), 320, 240);
         stage.setTitle("Maze!");
